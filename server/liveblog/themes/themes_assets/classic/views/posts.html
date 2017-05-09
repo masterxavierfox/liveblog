@@ -14,6 +14,10 @@
         color: #5ea9c8;
         cursor: pointer;
     }
+    .social-icon {
+        font-size: x-large!important;
+        margin-left: 4px!important;
+    }
 </style>
 
 <article
@@ -31,20 +35,41 @@
         </div>
 
         <div class="lb-post-permalink" style="right:30px" ng-click="showSocial = !showSocial">
-            <!-- <a href="{{ ctrl.timeline.permalink.get(post._id) }}" id="{{ post._id }}" target="_blank">
-                <i class="icon-link icon--red"></i>
-            </a> -->
+           
             <i class="fa fa-share share-icon" title="{{ 'Social Share' | translate }}"></i>
 
             <div ng-if="showSocial" class="share-box">
-                <a href="https://www.facebook.com/sharer.php?s=100&p[title]=&p[url]={{ ctrl.timeline.permalink.get(post._id) }}" class='social facebook' target='_blank'>
-                    <span class="fa fa-facebook"></span>
+
+                <a href="//www.facebook.com/sharer.php?s=100&p[title]=&p[url]={{ ctrl.timeline.permalink.get(post._id) }}" class='social facebook' target='_blank'
+                title="{{ 'Share this post on Facebook' | translate }}"
+                onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=400');return false;">
+                    <span class="fa fa-facebook social-icon"></span>
                 </a>
-              <!--   <a href="#" class='social twitter' target='_blank' title="_('Share this post on Twitter');" onclick="{twtclick}"></a>
-                <a href="#" class='social linkedin' title="_('Share this post on Linkedin');" onclick="{linclick}"></a>
-                {#showPin}<a href="#" class='social pinterest' title="_('Share this post on Pinterest');" onclick="{pinclick}"></a>{/showPin}
-                <a href="#" class='social google' title="_('Share this post on Google+');" onclick="{gglclick}"></a>
-                <a href="{emailurl}" class='social email' title="_('Share this post via Email');" target="_blank"></a> -->
+
+                <a href="//twitter.com/home?status={{ ctrl.timeline.permalink.get(post._id) }}'" class='social twitter' target='_blank'
+                title="{{ 'Share this post on Twitter' | translate }}"
+                onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=400');return false;">
+                    <span class="fa fa-twitter social-icon"></span>
+                </a>
+
+                <a href="//www.linkedin.com/shareArticle?mini=true&url={{ ctrl.timeline.permalink.get(post._id) }}" class='social linkedin' target='_blank'
+                title="{{ 'Share this post on Linkedin' | translate }}"
+                onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=400');return false;">
+                    <span class="fa fa-linkedin social-icon"></span>
+                </a>
+
+                <a href="//plus.google.com/share?url={{ ctrl.timeline.permalink.get(post._id) }}" class='social google' target='_blank'
+                title="{{ 'Share this post on Google+' | translate }}"
+                onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=570,height=400');return false;">
+                    <span class="fa fa-google-plus social-icon"></span>
+                </a>
+
+                <a href="mailto:?to=&subject=Liveblog&body={{ ctrl.timeline.permalink.get(post._id) }}" class='social email' target='_blank'
+                title="{{ 'Share this post on Email' | translate }}"
+                onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=1024,height=768');return false;">
+                    <span class="fa fa-envelope social-icon"></span>
+                </a>
+
             </div>
         </div>
         <div class="lb-post-permalink">

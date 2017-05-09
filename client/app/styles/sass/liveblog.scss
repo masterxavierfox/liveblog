@@ -2,10 +2,15 @@
 	z-index: auto;
 }
 
+.navbtn-auto {
+    width: auto !important;
+}
+
 .navbtn.hover {
 	background: #e0e0e0;
 }
 
+//<<<<<<< HEAD
 // .subnav {
 //     display: block;
 // }
@@ -19,6 +24,22 @@
 
 .navbtn .title {
     text-transform: uppercase;
+//=======
+//.navbtn .title {
+//  text-transform: uppercase;
+//}
+
+//.navbtn i + .title {
+//  margin-left: 10px;
+//}
+
+//.navbtn.navbtn-hover .title {
+//  display: none;
+//}
+
+//.navbtn.navbtn-hover:hover .title {
+//  display: inline;
+//>>>>>>> upstream/master
 }
 
 .button-stack > .btn {

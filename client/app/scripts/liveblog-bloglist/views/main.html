@@ -8,11 +8,21 @@
             <li ng-class="{active: activeState === state}" ng-repeat="state in states"><button ng-click="changeState(state)" translate>{{ ::state.text }}</button></li>
         </ul>
     </div>
+<!--<<<<<<< HEAD-->
     <div class="subnav__stretch-bar"></div>
     <div class="subnav__button-stack--square-buttons" ng-if="isUserAllowedToCreateABlog();">
         <button class="navbtn sd-create-btn" ng-click="openNewBlog();" title="{{ 'Create Blog' | translate }}">
             <i class="svg-icon-plus"></i>
             <span class="circle"></span>
+<!--=======-->
+
+<!--    <div class="button-stack right-stack create-blog" ng-if="isUserAllowedToCreateABlog();">-->
+<!--        <button-->
+<!--            class="navbtn navbtn-info navbtn-auto"-->
+<!--            ng-click="openNewBlog();"-->
+<!--            title="{{ 'Create Blog' | translate }}">-->
+<!--            <i class="svg-icon-add inverse"></i> <span class="title" translate>Create blog</span>-->
+<!-->>>>>>> upstream/master-->
         </button>
     </div>
 </div>
@@ -38,7 +48,10 @@
         <!-- empty state -->
         <div ng-if="blogs._meta.total === 0" class="empty-state">
             <div translate>No blogs found.</div>
-            <button ng-if="activeState.code === 'open'" class="btn btn--primary btn-large" ng-click="openNewBlog();">
+            <button
+                ng-if="activeState.code === 'open' && isUserAllowedToCreateABlog();"
+                class="btn btn-info btn-large"
+                ng-click="openNewBlog();">
                 <i class="svg-icon-add inverse"></i>
                 <span class="title" translate>Create a Blog</span>
             </button>

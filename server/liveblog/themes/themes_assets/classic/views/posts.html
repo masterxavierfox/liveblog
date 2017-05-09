@@ -1,3 +1,21 @@
+<style type="text/css">
+    .share-box {
+        background: #F8F8F8;
+        padding: 10px;
+        border: 1px solid #D0D0D0;
+        position: absolute;
+        top: 18px;
+        right: 45px;
+        z-index: 5;
+        width: 140px;
+        height: 24px;
+    }
+    .share-icon {
+        color: #5ea9c8;
+        cursor: pointer;
+    }
+</style>
+
 <article
          ng-repeat="post in ctrl.posts() track by post._id"
          class="lb-post list-group-item ng-cloak "
@@ -10,6 +28,24 @@
         <lb-author item="post.mainItem" timeline="timeline"></lb-author>
         <div class="lb-post-highlighted" ng-if="post.lb_highlight">
             <i class="icon-star icon--orange"></i>
+        </div>
+
+        <div class="lb-post-permalink" style="right:30px" ng-click="showSocial = !showSocial">
+            <!-- <a href="{{ ctrl.timeline.permalink.get(post._id) }}" id="{{ post._id }}" target="_blank">
+                <i class="icon-link icon--red"></i>
+            </a> -->
+            <i class="fa fa-share share-icon" title="{{ 'Social Share' | translate }}"></i>
+
+            <div ng-if="showSocial" class="share-box">
+                <a href="https://www.facebook.com/sharer.php?s=100&p[title]=&p[url]={{ ctrl.timeline.permalink.get(post._id) }}" class='social facebook' target='_blank'>
+                    <span class="fa fa-facebook"></span>
+                </a>
+              <!--   <a href="#" class='social twitter' target='_blank' title="_('Share this post on Twitter');" onclick="{twtclick}"></a>
+                <a href="#" class='social linkedin' title="_('Share this post on Linkedin');" onclick="{linclick}"></a>
+                {#showPin}<a href="#" class='social pinterest' title="_('Share this post on Pinterest');" onclick="{pinclick}"></a>{/showPin}
+                <a href="#" class='social google' title="_('Share this post on Google+');" onclick="{gglclick}"></a>
+                <a href="{emailurl}" class='social email' title="_('Share this post via Email');" target="_blank"></a> -->
+            </div>
         </div>
         <div class="lb-post-permalink">
             <a href="{{ ctrl.timeline.permalink.get(post._id) }}" id="{{ post._id }}" target="_blank">

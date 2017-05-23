@@ -70,7 +70,7 @@ describe('Themes Manager', function() {
     //    });
     //});
 
-    it('can remove a theme', function() {
+    fit('can remove a theme', function() {
         themeManager.openThemesManager()
         .themes
         .then(function(themes) {

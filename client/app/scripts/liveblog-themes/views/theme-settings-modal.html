@@ -42,6 +42,9 @@
                         <div ng-switch-when="datetimeformat" class="datetimeformat">
                             <lb-date-format options="vm.datetimeFormats" ng-model="vm.settings[option.name]" />
                         </div>
+                        <div ng-switch-when="image" class="image">
+                            <lb-image-upload ng-model="vm.settings[option.name]" />
+                        </div>
                     </div>
                     <div ng-messages="vm.themeSettingsForm[option.name].$error" style="color:maroon" role="alert">
                         <div ng-message="number" trans>You did not enter a number</div>

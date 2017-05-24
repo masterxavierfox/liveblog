@@ -7,7 +7,7 @@
         <div ng-if="vm.optionsAreloading" translate>Options are loading...</div>
         <form ng-if="!vm.optionsAreloading" name="vm.themeSettingsForm">
             <div ng-repeat="option in vm.options" ng-if="vm.optionRequirementIsSatisfied(option)">
-                <div class="form-group">                    
+                <div class="form-group">
                     <div ng-switch="option.type">
                         <div ng-switch-when="checkbox" class="pull-left">
                             <input
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div ng-messages="vm.themeSettingsForm[option.name].$error" style="color:maroon" role="alert">
-                        <div ng-message="number" trans>You did not enter a number</div>
+                        <div ng-message="number" translate>You did not enter a number</div>
                     </div>
                     <p class="help-block" ng-bind-html="option.help | linkup"></p>
                 </div>

@@ -8,6 +8,7 @@
  * at https://www.sourcefabric.org/superdesk/license
  */
 import dateFormTpl from 'scripts/liveblog-themes/views/date-format.html';
+import imageUploadTpl from 'scripts/liveblog-themes/views/image-upload.html';
 
 (function() {
     angular.module('liveblog.themes')
@@ -37,4 +38,27 @@ import dateFormTpl from 'scripts/liveblog-themes/views/date-format.html';
                 }
             };
         }])
+        .directive('lbImageUpload', [function() {
+            return {
+                scope: {
+                    options: '=',
+                    value: '=ngModel'
+                },
+                templateUrl: imageUploadTpl,
+                controllerAs: 'lbi',
+                controller: ['$scope', 'superdesk', function($scope, superdesk) {
+                    
+                    scope.openUploadModal = function() {
+                        superdesk.intent('upload', 'media').then((pictures) => {
+                            if (pictures.length === 0) {
+                                return;
+                            }
+                            let firstPicture = pictures[0];
+                            $scope.value = firstPicture.renditions.original.href;
+                        });
+                    }                    
+                }]
+            };
+        }])
+
 })();

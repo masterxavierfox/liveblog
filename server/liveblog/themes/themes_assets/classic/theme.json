@@ -255,7 +255,14 @@
             "label": "Autoplay for livestream videos",
             "type": "checkbox",
             "default": false,
-            "help": "if the users will see the video autoplay for livestream"
+            "help": "If the users will see the video autoplay for livestream"
+        },
+        {
+            "name": "logo",
+            "label": "Logo image on the embed",
+            "type": "image",
+            "defaut": "",
+            "help": "If the users will see this logo instead of the default one"
         }
     ]
 }

@@ -11,12 +11,6 @@ env:
         # https://github.com/travis-ci/travis-ci/issues/5246#issuecomment-166460882
         - BOTO_CONFIG=/doesnotexist
         - SYNDICATION_VALIDATE_AUTH=0
-        - MAIL_SERVER='localhost'
-        - MAIL_PORT=2225
-        - MAIL_USERNAME=
-        - MAIL_PASSWORD=
-        - MAIL_USE_TLS=
-        - MAIL_USE_SSL=
         - MAIL_DEBUG=1
         - MAIL_SUPPRESS_SEND=True
 
@@ -79,7 +73,6 @@ before_script:
     - MARKETPLACE=true SYNDICATION=true grunt build --server='http://localhost:5000/api' --ws='ws://localhost:5100'
     - cd dist
     - while [ ! -f index.html ]; do sleep .5; done
-    - (nohup sudo python3 -m smtpd -n -c DebuggingServer localhost:2225 &)
     - (nohup python3 -m http.server 9000 &)
 
 script:
